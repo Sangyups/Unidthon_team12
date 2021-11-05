@@ -32,7 +32,7 @@ def keywordExtractor(news_list):
 
 if __name__ == '__main__':
 	test_list = []
-	with open('articles.txt') as f:
+	with open('./test/articles-2.txt') as f:
 		test_list.append(f.read())
 
 	keywordExtractor(test_list)
