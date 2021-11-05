@@ -9,4 +9,5 @@ from promise import views
 # The API URLs are now determined automatically by the router.
 urlpatterns = [
     path("", views.PromiseView.as_view()),
+    path("admin/", views.AdminView.as_view()),
 ]

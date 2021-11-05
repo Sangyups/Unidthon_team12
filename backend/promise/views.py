@@ -75,8 +75,9 @@ class AdminView(APIView):
             "resultType": "json",
         }
         response = requests.get(url, params=params)
+        results = json.loads(response.content)
 
-        return Response({"status": "success"})
+        return Response(results["getCommonSgCodeList"]["item"])
 
 
 # -> 선거정보 -> 후보자 -> 공약
