@@ -3,12 +3,8 @@
 
 # backend
 /venv
-/__pycache__
+__pycache__/
 .env
 
 # algorithm
-<<<<<<< HEAD
 /unid
-=======
-/unid
->>>>>>> 886b36fd8b1f7ccbd26da199c19dbcbfc4cf6c6c
