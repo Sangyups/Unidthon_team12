@@ -5,7 +5,6 @@ backports.entry-points-selectable==1.1.0
 beautifulsoup4==4.6.0
 beniget==0.4.1
 black==21.7b0
-bs4==0.0.1
 certifi==2021.10.8
 cfgv==3.3.0
 charset-normalizer==2.0.7
