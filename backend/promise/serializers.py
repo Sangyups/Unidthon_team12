@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from promise.models import Elections
+from promise.models import Promises
 
 
-class ElctionsSerializer(serializers.ModelSerializer):
+class PromisesSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Elections
+        model = Promises
         fields = "__all__"
