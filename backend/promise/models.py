@@ -11,8 +11,6 @@ class Candidates(models.Model):
 
 class Promises(models.Model):
     vote_date = models.IntegerField
-    # candidate = models.CharField(max_length=100)
-    # party = models.CharField(max_length=100)
     realm = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
     contents = models.TextField()
