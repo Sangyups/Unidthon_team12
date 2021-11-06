@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import './Card.css';
 
-const Card = (props) => {
+const Card = ({ name, party, title, contents }) => {
   return (
     <div className="card">
       <div
@@ -13,7 +13,7 @@ const Card = (props) => {
         style={{ width: props.width, height: props.height }}
       >
         <nav className="menu">
-          <a href="#" onClick={() => props.setTrigger(true)}>
+          <a href="#">
             <img src="img/share.png" alt="share"></img>
           </a>
           <a href="#">
@@ -23,17 +23,18 @@ const Card = (props) => {
 
         <section>
           <div className="promise">
-            <span>
-              "청년 일자리를
-              <br /> 창출하겠습니다"
-            </span>
+            <span>{title}</span>
           </div>
 
           <div className="info">
-            <img src="img/test1.jpg" className="candidate"></img>
-            <img src="img/test2.jpg" className="logo"></img>
-            <span className="partyName">더불어민주당</span>
-            <span className="name">홍길동</span>
+            <img
+              src={`img/${name}.jpg`}
+              alt="candidate"
+              className="candidate"
+            ></img>
+            <img src={`img/${party}.jpg`} alt="party" className="logo"></img>
+            <span className="partyName">{party}</span>
+            <span className="name">{name}</span>
           </div>
         </section>
       </div>
