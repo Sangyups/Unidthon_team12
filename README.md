@@ -15,7 +15,7 @@ python manage.py runserver
 
 ## Frontend
 
-### Used Framework
+### Mainly Used Framework
 React
 
 
@@ -30,9 +30,9 @@ React
     : 프론트엔드의 메인 디렉토리로, 템플릿 코드에서 필요한 부분만을 가져와서 개발을 시작.
     + src
       - App.js
-        : 
+        : Router 설정을 위한 파일이다.
       - index.js
-        :
+        : React.DOM이 render된 곳이다.
       - card
         : 선택한 키워드에 따른 후보자들을 카드 형식으로 나타내었다.
         * Card.js
@@ -50,3 +50,6 @@ React
       - styles
         * fonts.css
           : home.js에서 사용할 웹 폰트를 위한 파일이다.
+    + public
+        * img
+            : 아이콘, 이미지, 후보자 더미 이미지 저장소이다.
