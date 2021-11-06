@@ -5,6 +5,16 @@ import sys
 
 
 def promiseFilter(promise_list, keyword, threshold=0.42):
+    """Filtering promises by given keyword. Implemented by FastText algorithm.
+
+    Args:
+        promise_list (list): List of promise strings.
+        keyword (string): Filtering keyword.
+        threshold (float, optional): Threshold value for similarity score. Defaults to 0.42.
+
+    Returns:
+        (list): Returns list of filtered(relevant to keyword) promises. 
+    """
     # * initial settings
     #! too slow to load model
     # TODO develop load-only function or made this function to be called only once
