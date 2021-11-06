@@ -60,4 +60,31 @@ Django
           : home.js에서 사용할 웹 폰트를 위한 파일이다.
     + public
         * img
-            : 아이콘, 이미지, 후보자 더미 이미지 저장소이다.
+            : 아이콘, 이미지, 후보자 더미 이미지 저장소이다.  
+## Algorithm - WordRank & FastText
+
+### Environment
+- Python 3.9
+- ```gensim```, ```konlpy```, ```krwordrank```  
+- More information about libary - ```requirements.txt```
+  
+  
+### Pre-trained Model (FastText)
+Download in [here](https://www.dropbox.com/s/stt4y0zcp2c0iyb/ko.tar.gz?dl=0). - [Reference Repository](https://github.com/Kyubyong/wordvectors)
+
+
+### Directory Structure
+```
+algorithm ┬── model
+          │   └── ko.bin
+		  ├── test
+		  │   ├── test.txt
+  		  │   ├── articles.txt
+		  │   ├── articles-2.txt
+		  │   └── description.txt 
+		  ├── keyword.py
+		  ├── similarity.py
+		  ├── stopwords.txt
+		  ├── requirements.txt 
+		  └── README.md
+```
