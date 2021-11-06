@@ -44,7 +44,6 @@ const Home = () => {
   if (loading) return <Loading />;
   if (error) return <div>에러가 발생했습니다</div>;
   if (!keywords) return null;
-  console.log(keywords);
   return (
     <div>
       <Container sx={{ pt: '8%' }}>
@@ -54,21 +53,25 @@ const Home = () => {
           justifyContent="space-between"
           mb={5}
         >
-          <Typography variant="h3" sx={{ pl: '3%', mb: '-2%' }}>
-            #새싹들
+          <Typography
+            className="typography"
+            variant="h3"
+            sx={{ pl: '3%', mb: '-2%' }}
+            fontFamily="twaysky"
+          >
+            #공공집
           </Typography>
         </Stack>
-        <Grid container spacing={3} sx={{ width: '60%', pl: '2%' }}>
-          {keywords.keywords.map((keyword, index) => (
-            <Grid item className="itemBox" xs={12} sm={3} md={3} key={index}>
-              <Paper className="paper">
-                <Link to={`/promises?keyword=${keyword}`}>
-                  <div className="keyword"> {keyword} </div>
-                </Link>
-              </Paper>
-            </Grid>
-          ))}
-        </Grid>
+
+        {keywords.keywords.map((keyword, index) => (
+          <Grid item className="itemBox" xs={12} sm={3} md={3} key={index}>
+            <Paper className="paper">
+              <Link to={`/promises?keyword=${keyword}`}>
+                <div className="keyword"> {keyword} </div>
+              </Link>
+            </Paper>
+          </Grid>
+        ))}
       </Container>
     </div>
   );
