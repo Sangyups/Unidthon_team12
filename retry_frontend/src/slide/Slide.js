@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import "./styles/Slide.css";
-import Card from "./Card";
+import "./Slide.css";
+import Card from "../card/Card";
 
 
 const Slide = () => {
@@ -14,15 +14,12 @@ const Slide = () => {
 
     const check = index => setSelectedIndex(index);
     return (
-        <div className="slideoooooooo">
+        <div className="slide">
             <div className="container">
 
-                <div className="prev-btn">
-                    <button onClick={checkNext}>{'<'}</button>
-                </div>
+                <button className="btn" onClick={checkNext} >{'<'}</button>
 
-                <div className="pannel-container">
-
+                <div className="pannel">
                     <section id="slider">
                         <input
                             type="radio"
@@ -47,24 +44,19 @@ const Slide = () => {
                         />
 
                         <label htmlFor="s1" id="slide1">
-                            {/* <Card /> */}
-                            {/* <img className="fea" src="https://picsum.photos/200/200" height="100%" width="100%" /> */}
+                            <Card height="100%" width="100%" />
                         </label>
                         <label htmlFor="s2" id="slide2">
-                            <Card height="50%" width="100%" />
-                            {/* <img className="fea" src="https://picsum.photos/200/300" height="100%" width="100%" /> */}
+
                         </label>
                         <label htmlFor="s3" id="slide3">
-                            {/* <Card /> */}
-                            {/* <img className="fea" src="https://picsum.photos/300/300" height="100%" width="100%" /> */}
+
                         </label>
                     </section>
 
                 </div>
 
-                <div className="next-btn">
-                    <button onClick={checkNext}>{'>'}</button>
-                </div>
+                <button className="btn" onClick={checkNext}>{'>'}</button>
 
             </div>
         </div>
