@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Deatil = ({ contents }) => {
+const Detail = ({ contents }) => {
   return <div>{contents}</div>;
 };
 
-export default Deatil;
+export default Detail;
