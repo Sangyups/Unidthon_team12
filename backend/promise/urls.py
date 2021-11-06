@@ -1,5 +1,4 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 from promise import views
 
 # Create a router and register our viewsets with it.
@@ -8,6 +7,7 @@ from promise import views
 
 # The API URLs are now determined automatically by the router.
 urlpatterns = [
-    path("", views.PromiseView.as_view()),
+    path("promise/", views.PromiseView.as_view()),
     path("admin/", views.AdminView.as_view()),
+    path("keywords/", views.KeywordsView.as_view()),
 ]

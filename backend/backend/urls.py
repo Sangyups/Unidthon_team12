@@ -19,5 +19,5 @@ import promise.urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/promise/", include(promise.urls)),
+    path("api/", include(promise.urls)),
 ]
