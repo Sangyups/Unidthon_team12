@@ -1,74 +1,84 @@
-import React, { Component } from 'react';
-import { useState } from 'react';
-import "./Slide.css";
-import Card from "../card/Card";
-import Popup from './Popup';
+import React, { useState, useEffect } from 'react';
+import Card from '../card/Card';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import styled from 'styled-components';
+import qs from 'qs';
+import axios from 'axios';
+import Loading from '../loading/Loading';
 
-const Slide = () => {
-    const [selectedIndex, setSelectedIndex] = React.useState(0);
+const Wrap = styled.div`
+  margin: 5% auto;
+  width: 50vw;
+  height: 80vh;
+  .slick-prev:before {
+    opaicty: 1; // 기존에 숨어있던 화살표 버튼이 보이게
+    color: black; // 버튼 색은 검은색으로
+    font-size: 40px;
+  }
+  .slick-next:before {
+    opacity: 1;
+    color: black;
+    font-size: 40px;
+  }
+`;
 
-    const checkNext = () => {
-        const labels = document.querySelectorAll('#slider label');
-        const nextIndex = selectedIndex === (labels.length - 1) ? 0 : selectedIndex + 1;
-        setSelectedIndex(nextIndex);
-    }
+const Slide = ({ location }) => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    className: 'center',
+    centerMode: true,
+    centerPadding: '60px',
+  };
+  const query = qs.parse(location.search, {
+    ignoreQueryPrefix: true,
+  });
+  const keyword = query.keyword; // 쿼리의 파싱결과값은 문자열입니다.
+  const [promises, setPromises] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-    const check = index => setSelectedIndex(index);
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        // 요청이 시작 할 때에는 error 와 promises 를 초기화하고
+        setError(null);
+        setPromises(null);
+        // loading 상태를 true 로 바꿉니다.
+        setLoading(true);
+        const response = await axios.get(
+          `http://localhost:8000/api/promise/?keyword=${keyword}`
+        );
+        setPromises(response.data); // 데이터는 response.data 안에 들어있습니다.
+      } catch (e) {
+        console.log(e);
+        setError(e);
+      }
+      setLoading(false);
+    };
 
-    const [buttonPopup, setButtonPopup] = useState(false);
+    fetchUsers();
+  }, []);
 
-    return (
-        <div className="slide">
+  if (loading) return <Loading />;
+  if (error) return <div>에러가 발생했습니다</div>;
+  if (!promises) return null;
 
-            <div className="container">
+  console.log(promises);
 
-                <button className="btn" onClick={checkNext} >{'<'}</button>
+  return (
+    <Wrap>
+      <Slider {...settings}>
+        {promises.map((promise, index) => (
+          <Card {...promise} />
+        ))}
+      </Slider>
+    </Wrap>
+  );
+};
 
-                <div className="pannel">
-                    <section id="slider">
-                        <input
-                            type="radio"
-                            name="slider"
-                            id="s1"
-                            checked={selectedIndex === 0}
-                            onClick={() => check(0)}
-                        />
-                        <input
-                            type="radio"
-                            name="slider"
-                            id="s2"
-                            checked={selectedIndex === 1}
-                            onClick={() => check(1)}
-                        />
-                        <input
-                            type="radio"
-                            name="slider"
-                            id="s3"
-                            checked={selectedIndex === 2}
-                            onClick={() => check(2)}
-                        />
-
-                        <label htmlFor="s1" id="slide1">
-                            <Card height="100%" width="100%" setTrigger={setButtonPopup} />
-                        </label>
-                        <label htmlFor="s2" id="slide2">
-
-                        </label>
-                        <label htmlFor="s3" id="slide3">
-
-                        </label>
-                    </section>
-
-                </div>
-
-                <button className="btn" onClick={checkNext}>{'>'}</button>
-
-            </div>
-
-            <Popup trigger={buttonPopup} setTrigger={setButtonPopup} />
-
-        </div>
-    )
-}
-
-export default Slide
+export default Slide;

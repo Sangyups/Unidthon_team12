@@ -1,23 +1,29 @@
-
 import React from 'react';
 import './Loading.css';
 
 const Loading = () => {
-    return (
-        <div className="loading">
-
-            <div className="container">
-                <div className="inner">
-                    <div><div><img src="img/sprout.png"></img></div><div></div><div></div></div>
-                    <div><div></div><div></div><div></div></div>
-                </div>
+  return (
+    <div className="loading">
+      <div className="container">
+        <div className="inner">
+          <div>
+            <div>
+              <img src="img/sprout.png"></img>
             </div>
-
-            <span>
-                Loading...
-            </span>
+            <div></div>
+            <div></div>
+          </div>
+          <div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
-    )
-}
+      </div>
 
-export default Loading
+      <span>Loading...</span>
+    </div>
+  );
+};
+
+export default Loading;
