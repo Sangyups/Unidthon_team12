@@ -7,7 +7,7 @@ import './index.css';
 import Card from './card/Card';
 import Router from './routes';
 import App from './App';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 // import Loading from './loading/Loading';
 
