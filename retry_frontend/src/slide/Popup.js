@@ -11,6 +11,7 @@ const Popup = (props) => {
 
         <h1>공유하기</h1>
         <br />
+
         <h2>후보자의 정보를 공유해보세요</h2>
 
         <div className="group">
@@ -39,4 +40,5 @@ const Popup = (props) => {
   ) : "";
 };
 
-export default Popup
+
+export default Popup;

@@ -1,19 +1,14 @@
-import { height } from '@mui/system';
 import React from 'react';
-import { useState } from 'react';
-
-import './Card.css';
 
 const Card = (props) => {
   return (
     <div className="card">
       <div
         className="container"
-
         style={{ width: props.width, height: props.height }}
       >
         <nav className="menu">
-          <a href="#" onClick={() => props.setTrigger(true)}>
+          <a href="#">
             <img src="img/share.png" alt="share"></img>
           </a>
           <a href="#">
@@ -23,22 +18,17 @@ const Card = (props) => {
 
         <section>
           <div className="promise">
-            <span>
-              "청년 일자리를
-              <br /> 창출하겠습니다"
-            </span>
+            <span>{props.title}</span>
           </div>
 
           <div className="info">
             <img src="img/test1.jpg" className="candidate"></img>
             <img src="img/test2.jpg" className="logo"></img>
-            <span className="partyName">더불어민주당</span>
-            <span className="name">홍길동</span>
+            <span className="partyName">{props.name}</span>
+            <span className="name">{props.party}</span>
           </div>
         </section>
       </div>
     </div>
   );
 };
-
-export default Card;

@@ -47,6 +47,7 @@ const Slide = () => {
         <Card setTrigger={setButtonPopup} />
       </Slider>
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup} />
+
     </Wrap>
   );
 };
