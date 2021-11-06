@@ -1,6 +1,6 @@
 import { height } from '@mui/system';
 import React from 'react';
-import "./styles/Card.css";
+import "./Card.css";
 
 const Card = (props) => {
     return (
@@ -9,8 +9,8 @@ const Card = (props) => {
             <div className="container" style={{ width: props.width, height: props.height }}>
 
                 <nav className="menu">
-                    <a href="#"><img src="img/bookmark.png" alt="bookmark"></img></a>
                     <a href="#"><img src="img/share.png" alt="share"></img></a>
+                    <a href="#"><img src="img/bookmark.png" alt="bookmark"></img></a>
                 </nav>
 
                 <section>
