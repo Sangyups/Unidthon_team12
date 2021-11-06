@@ -1,7 +1,8 @@
 // material
 import { useTheme } from '@mui/material/styles';
 import { GlobalStyles as GlobalThemeStyles } from '@mui/material';
-
+import { red } from '@mui/material/colors';
+import { convertValueToMeridiem } from '@mui/lab/internal/pickers/time-utils';
 // ----------------------------------------------------------------------
 
 export default function GlobalStyles() {
@@ -26,7 +27,11 @@ export default function GlobalStyles() {
         },
         '#root': {
           width: '100%',
-          height: '100%'
+          height: '100%',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'right',
+          backgroundSize: '50%',
+          backgroundImage: "url('static/mock-images/main_page_image.jpg')"
         },
         input: {
           '&[type=number]': {

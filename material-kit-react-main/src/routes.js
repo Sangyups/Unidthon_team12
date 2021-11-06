@@ -17,9 +17,11 @@ export default function Router() {
   return useRoutes([
     {
       path: '/dashboard',
-      element: <DashboardLayout />,
+      element: <DashboardApp />, //! 여기를 일단 기존 코드에서 변형을 줘, 바로 dashboard로 이동하도록 함.
       children: [
-        { element: <Navigate to="/dashboard/app" replace /> },
+        /*
+          { element: <Navigate to="/dashboard/app" replace /> },
+        */
         { path: 'app', element: <DashboardApp /> },
         { path: 'user', element: <User /> },
         { path: 'products', element: <Products /> },
