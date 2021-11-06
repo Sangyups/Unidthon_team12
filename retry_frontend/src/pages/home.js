@@ -1,16 +1,21 @@
 //
 import React from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import { Container, Grid, Paper, Stack, Typography } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'right',
+        backgroundSize: '50%',
+        backgroundImage: "url('static/mock-image/main_page_image.jpg')"
+    },
     paper: {
       padding: theme.spacing(1),
       textAlign: "center",
-      color: theme.palette.text.secondary
+      color: theme.palette.text.secondary,
     }
   }));
 
@@ -20,7 +25,7 @@ function GridItem({ classes }) {
         // From 600-690px wide (tablets), I take up 6 out of 12 columns, so 2 columns fit the screen.
         // From 960px wide and above, I take up 25% of the device (3/12), so 4 columns fit the screen.
         <Grid item xs={12} sm={6} md={3}>
-        <Paper className={classes.paper}>item</Paper>
+            <Paper className={classes.paper}>item</Paper>
         </Grid>
     );
 } 
@@ -28,25 +33,19 @@ function GridItem({ classes }) {
 export default function Home() {
     const classes = useStyles();
     return (
-        <div>
-            <nav>
-                <label class="logo">DesignX</label>
-                <ul>
-                    <li><a class="active" href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Feedback</a></li>
-                </ul>
-            </nav>
-            <h3> Ex 4: Responsive Material UI Grid </h3>
-            // I am a container Grid with 1 (8px) spacing
-            <Grid container spacing={1}>
+        <Container sx={{ p: '3%' }} >
+            <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+                <Typography variant="h4" gutterBottom>
+                    Blog
+                </Typography>
+            </Stack>
+
+            <Grid container spacing={3} sx={{ width: '60%' }}>
                 <GridItem classes={classes} />
                 <GridItem classes={classes} />
                 <GridItem classes={classes} />
                 <GridItem classes={classes} />
             </Grid>
-        </div>
+        </Container>
     );
 }

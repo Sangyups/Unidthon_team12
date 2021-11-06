@@ -1,5 +1,5 @@
 //
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes  } from 'react-router-dom';
 
 //
 import Home from './pages/home';
@@ -7,8 +7,10 @@ import Home from './pages/home';
 
 export default function Router() {
   return (
-    <Routes>
-      <Route path="/" component={Home}/>
-    </Routes>
+    <BrowserRouter>
+      <Routes> 
+        <Route exact path="/" component={Home}/>  
+      </Routes>
+    </BrowserRouter>
   )
 }

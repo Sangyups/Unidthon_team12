@@ -1,14 +1,15 @@
+import React from 'react';
 // routes
 import Router from './routes';
-
-import logo from './logo.svg';
 
 // styles
 import './App.css';
 
+import Home from './pages/home';
+
 function App() {
   return (
-    <Router />
+    <Home />
   );
 }
 
