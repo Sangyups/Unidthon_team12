@@ -1,0 +1,101 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+@font-face {
+	font-family: "양진체";
+	src: url("https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff")
+		format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* 초기화 */
+.card {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+}
+
+.card ul,
+ol {
+	list-style: none;
+}
+
+.card a {
+	text-decoration: none;
+}
+
+/* 전체 카드 컨테이너 */
+.card .container {
+	width: 30vw;
+	height: 40vw;
+	padding: 3vh;
+	background-color: skyblue;
+	box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
+	border-radius: 20px;
+}
+
+/* 메뉴바 */
+.card .menu {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.card .menu a img {
+	width: 4vw;
+	margin: auto 20px;
+}
+
+/* 공약 */
+.card section .promise {
+	height: auto;
+	display: grid;
+	border: 1px solid rgb(255, 255, 255);
+	border-radius: 20px;
+	margin: 20px 0;
+}
+
+.card section .promise span {
+	margin: auto auto;
+	font-size: 50px;
+	font-family: "Do Hyeon", sans-serif;
+}
+
+/* 후보 정보 */
+.card section .info {
+	display: grid;
+	border: 1px solid rgb(255, 255, 255);
+	border-radius: 20px;
+	padding: 20px 0;
+}
+
+.card section .info .candidate {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	grid-column: 1/3;
+	grid-row: 1/3;
+	margin: auto auto;
+}
+
+.card section .info .logo {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	grid-column: 3/4;
+	margin: auto auto;
+}
+
+.card section .info .partyName {
+	grid-column: 4/6;
+	margin: auto 0;
+	font-size: 30px;
+	font-family: "양진체";
+}
+
+.card section .info .name {
+	font-size: 60px;
+	grid-column: 3/6;
+	margin: auto auto;
+	font-family: "양진체";
+	letter-spacing: 20px;
+}
