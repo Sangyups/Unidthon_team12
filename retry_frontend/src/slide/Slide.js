@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { useState } from 'react';
 import "./Slide.css";
 import Card from "../card/Card";
-
+import Popup from './Popup';
 
 const Slide = () => {
     const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -13,8 +14,12 @@ const Slide = () => {
     }
 
     const check = index => setSelectedIndex(index);
+
+    const [buttonPopup, setButtonPopup] = useState(false);
+
     return (
         <div className="slide">
+
             <div className="container">
 
                 <button className="btn" onClick={checkNext} >{'<'}</button>
@@ -44,7 +49,7 @@ const Slide = () => {
                         />
 
                         <label htmlFor="s1" id="slide1">
-                            <Card height="100%" width="100%" />
+                            <Card height="100%" width="100%" setTrigger={setButtonPopup} />
                         </label>
                         <label htmlFor="s2" id="slide2">
 
@@ -59,6 +64,9 @@ const Slide = () => {
                 <button className="btn" onClick={checkNext}>{'>'}</button>
 
             </div>
+
+            <Popup trigger={buttonPopup} setTrigger={setButtonPopup} />
+
         </div>
     )
 }
