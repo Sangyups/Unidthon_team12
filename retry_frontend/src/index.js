@@ -3,16 +3,12 @@ import ReactDOM from 'react-dom';
 
 // for dev
 import './index.css';
-
+import { BrowserRouter } from 'react-router-dom';
 import Card from './card/Card';
 import Router from './routes';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
 
 // import Loading from './loading/Loading';
-
-import { Router, Route, Link } from 'react-router-dom';
-import history from './history';
 
 ReactDOM.render(
   <BrowserRouter>

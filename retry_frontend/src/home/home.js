@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Paper, Stack, Typography } from '@mui/material';
 
-export * from 'react-router';
 import { withRouter } from 'react-router-dom';
 
 import './home.css';
@@ -15,29 +14,31 @@ import Loading from '../loading/Loading';
 // ----------------------------------------------------------------------
 
 const Home = () => {
-  const [keywords, setKeywords] = useState(null);
+  const [keywords, setKeywords] = useState({
+    keywords: ['취업', '입시', '임시 키워드'],
+  });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        // 요청이 시작 할 때에는 error 와 keywords 를 초기화하고
-        setError(null);
-        setKeywords(null);
-        // loading 상태를 true 로 바꿉니다.
-        setLoading(true);
-        const response = await axios.get('http://localhost:8000/api/keywords/');
-        setKeywords(response.data); // 데이터는 response.data 안에 들어있습니다.
-      } catch (e) {
-        console.log(e);
-        setError(e);
-      }
-      setLoading(false);
-    };
+  // useEffect(() => {
+  //   const fetchUsers = async () => {
+  //     try {
+  //       // 요청이 시작 할 때에는 error 와 keywords 를 초기화하고
+  //       setError(null);
+  //       setKeywords(null);
+  //       // loading 상태를 true 로 바꿉니다.
+  //       setLoading(true);
+  //       const response = await axios.get('http://localhost:8000/api/keywords/');
+  //       setKeywords(response.data); // 데이터는 response.data 안에 들어있습니다.
+  //     } catch (e) {
+  //       console.log(e);
+  //       setError(e);
+  //     }
+  //     setLoading(false);
+  //   };
 
-    fetchUsers();
-  }, []);
+  //   fetchUsers();
+  // }, []);
 
   if (loading) return <Loading />;
   if (error) return <div>에러가 발생했습니다</div>;
