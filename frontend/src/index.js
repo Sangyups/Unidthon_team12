@@ -1,24 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-// for dev
 import './index.css';
-
-
-import Slide from './slide/Slide';
-import Card from './card/Card';
-import Home from './home/home';
-
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-// import Loading from './loading/Loading';
-
-import { Router, Route, Link } from 'react-router-dom';
-import history from './history';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

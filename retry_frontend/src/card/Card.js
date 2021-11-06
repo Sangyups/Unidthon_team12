@@ -4,8 +4,8 @@ import { useState } from 'react';
 import "./Card.css";
 
 
-const Card = (props) => {
 
+const Card = (props) => {
     return (
         <div className="card">
 
@@ -36,4 +36,3 @@ const Card = (props) => {
 }
 
 export default Card
-
