@@ -6,6 +6,17 @@
 	font-style: normal;
 }
 
+.typography {
+	color: hsl(237, 20%, 52%);
+	text-shadow: 0 1px 0 hsl(174, 5%, 80%), 0 2px 0 hsl(174, 5%, 75%),
+		0 3px 0 hsl(174, 5%, 70%), 0 4px 0 hsl(174, 5%, 66%),
+		0 5px 0 hsl(174, 5%, 64%), 0 6px 0 hsl(174, 5%, 62%),
+		0 7px 0 hsl(174, 5%, 61%), 0 8px 0 hsl(174, 5%, 60%),
+		0 0 5px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.2),
+		0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.2),
+		0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.3);
+}
+
 .itemBox {
 	width: auto;
 	height: auto;
@@ -21,13 +32,39 @@
 }
 
 .keyword {
+	font-family: "twaysky";
 	padding-top: 1.5em;
 	vertical-align: middle;
+	font-size: 1em;
+
+	font-weight: 200;
+	letter-spacing: 1px;
+	padding: 13px 50px 13px;
+	outline: 0;
+	border: 1px solid rgba(0, 0, 0, 0.4);
+	cursor: pointer;
+	position: relative;
+	background-color: rgba(0, 0, 0, 0);
 }
 
-.typo {
-	font-family: "twaysky";
-	border: 2px solid black;
-	color: "red";
-	text-shadow: "5px 5px hsl(305, 12%, 52%)";
+.keyword::after {
+	content: "";
+	background-color: #ffee8c;
+	width: 100%;
+	z-index: -1;
+	position: absolute;
+	height: 100%;
+	top: 7px;
+	left: 7px;
+	transition: 0.2s;
+}
+
+.keyword:hover {
+	border: 1px solid rgb(0, 0, 0);
+}
+
+.keyword:hover::after {
+	top: 0px;
+	left: 0px;
+	background-color: #ffe347;
 }

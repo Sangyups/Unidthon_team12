@@ -10,51 +10,91 @@ import Slide from '../slide/Slide';
 
 class Home extends React.Component {
 
-    render() {
-        return (
-            <Container sx={{ pt: '8%', ml: '5%' }} >
-                <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-                    <Typography variant="h3" sx={{ pl: '1%', mb: '-2%' }} className="typo">
-                        #공공집
-                    </Typography>
-                </Stack>
+  constructor(props) {
+    super(props);
+  }
 
-                <Grid container spacing={3} sx={{ width: '60%' }} fontFamily="twaysky">
-                    <Grid item className="itemBox" xs={12} sm={3} md={3}>
-                        <Paper className="paper">
-                            <div className="keyword"> item </div>
-                        </Paper>
-                    </Grid>
-                    <Grid item className="itemBox" xs={12} sm={3} md={3}>
-                        <Paper className="paper"><div className="keyword"> item </div></Paper>
-                    </Grid>
-                    <Grid item className="itemBox" xs={12} sm={3} md={3}>
-                        <Paper className="paper"><div className="keyword"> item </div></Paper>
-                    </Grid>
-                    <Grid item className="itemBox" xs={12} sm={3} md={3}>
-                        <Paper className="paper"><div className="keyword"> item </div></Paper>
-                    </Grid>
-                </Grid>
+  goToSlide = () => {
+    //this.props.history.push('/Slide'); 여기가 일단 안되서 주석처리
+  };
 
-                <Grid container spacing={4} sx={{ width: '70%', pt: '2%', pl: '5%' }} fontFamily="twaysky">
-                    <Grid item className="itemBox" xs={12} sm={3} md={3}>
-                        <Paper className="paper">
-                            <div className="keyword"> item </div>
-                        </Paper>
-                    </Grid>
-                    <Grid item className="itemBox" xs={12} sm={3} md={3}>
-                        <Paper className="paper"><div className="keyword"> item </div></Paper>
-                    </Grid>
-                    <Grid item className="itemBox" xs={12} sm={3} md={3}>
-                        <Paper className="paper"><div className="keyword"> item </div></Paper>
-                    </Grid>
-                    <Grid item className="itemBox" xs={12} sm={3} md={3}>
-                        <Paper className="paper"><div className="keyword"> item </div></Paper>
-                    </Grid>
-                </Grid>
-            </Container>
-        );
-    }
+  render() {
+    return (
+      <Slide />
+      // <Container sx={{ pt: '8%' }}>
+      //   <Stack
+      //     direction="row"
+      //     alignItems="center"
+      //     justifyContent="space-between"
+      //     mb={5}
+      //   >
+      //     <Typography className="typography" variant="h3" sx={{ pl: '3%', mb: '-2%' }} fontFamily="twaysky">
+      //       #공공집
+      //     </Typography>
+      //   </Stack>
+
+      //   <Grid container spacing={3} sx={{ width: '60%', pl: '2%' }}>
+      //     <Grid
+      //       item
+      //       className="itemBox"
+      //       xs={12}
+      //       sm={3}
+      //       md={3}
+      //       onClick={this.goToSlide}
+      //     >
+
+      //       <div className="keyword"> item </div>
+
+      //     </Grid>
+      //     <Grid
+      //       item
+      //       className="itemBox"
+      //       xs={12}
+      //       sm={3}
+      //       md={3}
+      //       onClick={this.goToSlide}
+      //     >
+
+      //       <div className="keyword"> item </div>
+
+      //     </Grid>
+      //     <Grid item className="itemBox" xs={12} sm={3} md={3}>
+
+      //       <div className="keyword"> item </div>
+
+      //     </Grid >
+      //     <Grid item className="itemBox" xs={12} sm={3} md={3}>
+
+      //       <div className="keyword"> item </div>
+
+      //     </Grid >
+      //   </Grid >
+
+      //   <Grid container spacing={4} sx={{ width: '70%', pt: '2%', pl: '7%' }}>
+      //     <Grid item className="itemBox" xs={12} sm={3} md={3}>
+
+      //       <div className="keyword"> item </div>
+
+      //     </Grid>
+      //     <Grid item className="itemBox" xs={12} sm={3} md={3}>
+
+      //       <div className="keyword"> item </div>
+
+      //     </Grid >
+      //     <Grid item className="itemBox" xs={12} sm={3} md={3}>
+
+      //       <div className="keyword"> item </div>
+
+      //     </Grid >
+      //     <Grid item className="itemBox" xs={12} sm={3} md={3}>
+
+      //       <div className="keyword"> item </div>
+
+      //     </Grid >
+      //   </Grid >
+      // </Container >
+    );
+  }
 }
 
 export default Home;
