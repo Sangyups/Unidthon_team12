@@ -3,8 +3,6 @@ from promise.models import Promises, Candidates
 
 
 class PromisesSerializer(serializers.ModelSerializer):
-    # written_by = serializers.RelatedField(source="written_by", read_only=True)
-
     class Meta:
         model = Promises
         fields = "__all__"
