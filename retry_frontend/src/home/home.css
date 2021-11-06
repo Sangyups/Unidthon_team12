@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'twaysky';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twaysky.woff%22')
-    format('woff');
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twaysky.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 .typography {
+  transform: skewY(-11deg);
   color: hsl(237, 20%, 52%);
   text-shadow: 0 1px 0 hsl(174, 5%, 80%), 0 2px 0 hsl(174, 5%, 75%),
     0 3px 0 hsl(174, 5%, 70%), 0 4px 0 hsl(174, 5%, 66%),
@@ -23,6 +23,7 @@
 }
 
 .paper {
+  transform: skewY(-11deg);
   width: auto;
   height: 5rem;
   position: relative;
@@ -33,13 +34,13 @@
 
 .keyword {
   font-family: 'twaysky';
-  padding-top: 1.5em;
+  padding-top: 20px;
   vertical-align: middle;
-  font-size: 1em;
-
+  font-size: 100%;
+  max-width : 100%;
   font-weight: 200;
   letter-spacing: 1px;
-  padding: 13px 50px 13px;
+  padding: 30px 50px 30px;
   outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.4);
   cursor: pointer;

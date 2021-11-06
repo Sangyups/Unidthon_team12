@@ -1,15 +1,14 @@
 body{
-	background-color: rgb(252, 255, 240) !important;
-	transform: skewY(0deg) !important;
+	background-color: rgb(221, 255, 252);
 }
 
 .slide{
   position: relative;
   vertical-align: middle;
-  margin-left: 30%;
+  margin-left: 10%;
   margin-right: auto;
-  padding-top: 8%;
-
+  margin-top: 20%;
+  text-align: center;
 }
 
 .slack-slider {
@@ -18,5 +17,11 @@ body{
 
 .slack-arrow {
   margin-top: 10px;
-  position: relative;
+  position: absolute;
+}
+
+.cardSlide{
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
 }
