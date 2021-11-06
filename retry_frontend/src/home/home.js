@@ -1,8 +1,12 @@
-// 이 파일들은 다른 import 보다 상단에 위치해야 함
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { Container, Grid, Paper, Stack, Typography } from '@mui/material';
+
+import { withRouter } from 'react-router-dom';
+
 import './home.css';
 import '../styles/fonts.css';
-import { withRouter } from 'react-router-dom';
+
 import { HashRouter, Link } from 'react-router-dom';
 import axios from 'axios';
 import Loading from '../loading/Loading';
@@ -48,11 +52,11 @@ const Home = () => {
           justifyContent="space-between"
           mb={5}
         >
-          <Typography variant="h3" sx={{ pl: '3%', mb: '-2%' }}>
-            #새싹들
+          <Typography variant="h3" sx={{ pl: '3%', mb: '-2%', transform: skewY('-8deg') }}>
+            #새싹들, 
           </Typography>
         </Stack>
-        <Grid container spacing={3} sx={{ width: '60%', pl: '2%' }}>
+        <Grid container spacing={3} sx={{ width: '60%', pl: '2%', transform: skewY('-8deg') }}>
           {keywords.keywords.map((keyword, index) => (
             <Grid item className="itemBox" xs={12} sm={3} md={3} key={index}>
               <Paper className="paper">

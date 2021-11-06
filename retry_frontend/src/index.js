@@ -5,6 +5,9 @@ import Card from './card/Card';
 import Router from './routes';
 import App from './App';
 
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 // import Loading from './loading/Loading';
 
 ReactDOM.render(

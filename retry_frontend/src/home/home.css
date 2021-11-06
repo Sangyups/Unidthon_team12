@@ -1,11 +1,4 @@
-body{
-	background-image: url('./main_page.jpg');
-	transform: skewY(-11deg);
-	background-repeat: no-repeat;
-	background-position: 40vw;
-	background-attachment: fixed;
-	background-size: 70%;
-}
+
 
 .itemBox {
 	width: auto;
