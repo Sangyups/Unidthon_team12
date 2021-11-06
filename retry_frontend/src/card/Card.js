@@ -1,11 +1,17 @@
 import { height } from '@mui/system';
 import React from 'react';
+import { useState } from 'react';
+
 import './Card.css';
 
 const Card = ({ name, party, title, contents }) => {
   return (
     <div className="card">
-      <div className="container">
+      <div
+        className="container"
+
+        style={{ width: props.width, height: props.height }}
+      >
         <nav className="menu">
           <a href="#">
             <img src="img/share.png" alt="share"></img>

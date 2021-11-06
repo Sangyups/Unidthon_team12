@@ -5,7 +5,9 @@ import { Container, Grid, Paper, Stack, Typography } from '@mui/material';
 import { withRouter } from 'react-router-dom';
 
 import './home.css';
-import '../styles/fonts.css';
+import Slide from '../slide/Slide';
+
+import { withRouter } from 'react-router';
 
 import { HashRouter, Link } from 'react-router-dom';
 import axios from 'axios';

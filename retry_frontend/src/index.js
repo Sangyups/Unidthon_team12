@@ -1,6 +1,7 @@
 // for dev
-import './index.css';
-import { BrowserRouter } from 'react-router-dom';
+// import './index.css';
+
+import Slide from './slide/Slide';
 import Card from './card/Card';
 import Router from './routes';
 import App from './App';
