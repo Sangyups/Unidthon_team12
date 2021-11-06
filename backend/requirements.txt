@@ -1,5 +1,5 @@
 appdirs==1.4.4
-asgiref==3.3.4
+asgiref==3.4.1
 astroid==2.5.3
 backports.entry-points-selectable==1.1.0
 beautifulsoup4==4.6.0
@@ -43,7 +43,7 @@ pylint==2.7.4
 PySocks==1.7.1
 python-dotenv==0.19.1
 pythran==0.10.0
-pytz==2021.1
+pytz==2021.3
 pywatchman==1.4.1
 PyYAML==5.4.1
 regex==2021.8.21
@@ -54,7 +54,7 @@ scipy==1.7.1
 six==1.16.0
 smart-open==5.2.1
 soupsieve==2.3
-sqlparse==0.4.1
+sqlparse==0.4.2
 threadpoolctl==3.0.0
 toml==0.10.2
 tomli==1.2.1
