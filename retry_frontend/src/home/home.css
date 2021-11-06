@@ -1,0 +1,21 @@
+.itemBox {
+	width: auto;
+	height: auto;
+}
+
+.paper {
+	width: auto;
+	height: 5rem;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.keyword {
+	padding-top: 1.5em;
+	vertical-align: middle;
+}
+
+.typography {
+	font-family: "KOTRAHOPE";
+}
