@@ -23,7 +23,7 @@ DATA_PORTAL_KEY = os.getenv("DATA_PORTAL_KEY")
 
 class KeywordsView(APIView):
     def get(self, request, format=None):
-        search_list = ["주택", "취업", "교육"]
+        search_list = ["취업"]
         keywords = []
         for search in search_list:
             keyword = crawl.get_naver_news(search)
@@ -41,11 +41,11 @@ class PromiseView(APIView):
         print(keyword)
         results = []
         for candidate in serializer.data:
-            res = {}
-            res["name"] = candidate["name"]
-            res["party"] = candidate["party"]
             filter_list = similarity.promiseFilter(candidate["promises"], keyword)
             for item in filter_list:
+                res = {}
+                res["name"] = candidate["name"]
+                res["party"] = candidate["party"]
                 res["title"] = item["title"]
                 res["contents"] = item["contents"]
                 results.append(res)
