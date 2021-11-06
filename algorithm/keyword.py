@@ -3,13 +3,21 @@ from konlpy.tag import Okt
 import os, sys
 
 
-def keywordExtractor(news_list):
+def keywordExtractor(news_list, num_keywords=10):
+    """Keyword Extractor from list of news. Implemented by WordRank algorithm.
+
+    Args:
+        news_list (list): List of news strings.
+        num_keywords (int, optional): Number of keywords which is 
+
+    Returns:
+        (list): List of keywords, returns 10 keywords in default.
+    """
     # * initial settings
     min_count = 3
     max_length = 10
     beta = 0.85
     max_iter = 10
-    num_keywords = 10
     okt = Okt()
 
     # * preprocessed news list
