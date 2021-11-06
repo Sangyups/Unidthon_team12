@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 // for dev
 import './index.css';
 
-
 import Slide from './slide/Slide';
 import Card from './card/Card';
 import Home from './home/home';
@@ -15,17 +14,8 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <Slide />
-=======
     {/* <Loading /> */}
     <Home />
->>>>>>> 50645d87285c89f682a0558bdd2d91b00a20dc6c
-=======
-    {/* <Loading /> */}
-    <Home />
->>>>>>> 50645d87285c89f682a0558bdd2d91b00a20dc6c
   </React.StrictMode>,
   document.getElementById('root')
 );
