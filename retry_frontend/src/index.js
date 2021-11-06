@@ -13,19 +13,12 @@ import reportWebVitals from './reportWebVitals';
 
 // import Loading from './loading/Loading';
 
+import { Router, Route, Link } from 'react-router-dom';
+import history from './history';
+
 ReactDOM.render(
   <React.StrictMode>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <Slide />
-=======
-    {/* <Loading /> */}
     <Home />
->>>>>>> 50645d87285c89f682a0558bdd2d91b00a20dc6c
-=======
-    {/* <Loading /> */}
-    <Home />
->>>>>>> 50645d87285c89f682a0558bdd2d91b00a20dc6c
   </React.StrictMode>,
   document.getElementById('root')
 );
