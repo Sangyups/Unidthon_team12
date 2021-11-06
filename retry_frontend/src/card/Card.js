@@ -1,6 +1,7 @@
 import { height } from '@mui/system';
 import React from 'react';
 import './Card.css';
+import Detail from './Detail';
 
 const Card = ({ name, party, title, contents }) => {
   return (
@@ -16,7 +17,13 @@ const Card = ({ name, party, title, contents }) => {
         </nav>
 
         <section>
-          <div className="promise">
+          <div
+            className="promise"
+            onClick={() => {
+              const modal = document.getElementById('modal');
+              modal.style.display = 'flex';
+            }}
+          >
             <span>{title}</span>
           </div>
 

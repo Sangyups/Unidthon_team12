@@ -7,6 +7,8 @@ import styled from 'styled-components';
 import qs from 'qs';
 import axios from 'axios';
 import Loading from '../loading/Loading';
+import Detail from '../card/Detail';
+import { Link } from 'react-router-dom';
 
 const Wrap = styled.div`
   margin: 5% auto;
@@ -91,13 +93,16 @@ const Slide = ({ location }) => {
   console.log(promises);
 
   return (
-    <Wrap>
-      <Slider {...settings}>
-        {promises.map((promise, index) => (
-          <Card {...promise} key={index} />
-        ))}
-      </Slider>
-    </Wrap>
+    <>
+      <Wrap>
+        <Slider {...settings}>
+          {promises.map((promise, index) => (
+            <Card {...promise} key={index} />
+          ))}
+        </Slider>
+      </Wrap>
+      <Link to="/">Home</Link>
+    </>
   );
 };
 
