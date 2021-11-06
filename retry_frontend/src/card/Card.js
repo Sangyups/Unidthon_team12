@@ -13,10 +13,10 @@ const Card = ({ name, party, title, contents }) => {
         style={{ width: props.width, height: props.height }}
       >
         <nav className="menu">
-          <a href="#">
+          <a href="#" onClick={() => props.setTrigger(1)}>
             <img src="img/share.png" alt="share"></img>
           </a>
-          <a href="#">
+          <a href="#" onClick={() => props.setTrigger(2)}>
             <img src="img/bookmark.png" alt="bookmark"></img>
           </a>
         </nav>

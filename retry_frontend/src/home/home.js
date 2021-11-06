@@ -42,12 +42,16 @@ const Home = () => {
   //   fetchUsers();
   // }, []);
 
-  if (loading) return <Loading />;
-  if (error) return <div>에러가 발생했습니다</div>;
-  if (!keywords) return null;
-  console.log(keywords);
-  return (
-    <div>
+
+  render() {
+    return (
+      if (loading) return <Loading />;
+      if (error) return <div>에러가 발생했습니다</div>;
+      if (!keywords) return null;
+      console.log(keywords);
+
+      <div>
+
       <Container sx={{ pt: '8%' }}>
         <Stack
           direction="row"
@@ -55,24 +59,84 @@ const Home = () => {
           justifyContent="space-between"
           mb={5}
         >
-          <Typography variant="h3" sx={{ pl: '3%', mb: '-2%' }}>
-            #새싹들
+          <Typography className="typography" variant="h3" sx={{ pl: '3%', mb: '-2%' }} fontFamily="twaysky">
+            #공공집
           </Typography>
         </Stack>
         <Grid container spacing={3} sx={{ width: '60%', pl: '2%' }}>
-          {keywords.keywords.map((keyword, index) => (
-            <Grid item className="itemBox" xs={12} sm={3} md={3} key={index}>
-              <Paper className="paper">
-                <Link to={`/promises?keyword=${keyword}`}>
-                  <div className="keyword"> {keyword} </div>
-                </Link>
-              </Paper>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-    </div>
-  );
-};
 
+          <Grid
+            item
+            className="itemBox"
+            xs={12}
+            sm={3}
+            md={3}
+            onClick={this.goToSlide}
+          >
+
+            <div className="keyword"> item </div>
+
+          </Grid>
+          <Grid
+            item
+            className="itemBox"
+            xs={12}
+            sm={3}
+            md={3}
+            onClick={this.goToSlide}
+          >
+
+            <div className="keyword"> item </div>
+
+          </Grid>
+          <Grid item className="itemBox" xs={12} sm={3} md={3}>
+
+            <div className="keyword"> item </div>
+
+          </Grid >
+          <Grid item className="itemBox" xs={12} sm={3} md={3}>
+
+            <div className="keyword"> item </div>
+
+          </Grid >
+        </Grid >
+
+        <Grid container spacing={4} sx={{ width: '70%', pt: '2%', pl: '7%' }}>
+          <Grid item className="itemBox" xs={12} sm={3} md={3}>
+
+            <div className="keyword"> item </div>
+
+          </Grid>
+          <Grid item className="itemBox" xs={12} sm={3} md={3}>
+
+            <div className="keyword"> item </div>
+
+          </Grid >
+          <Grid item className="itemBox" xs={12} sm={3} md={3}>
+
+            <div className="keyword"> item </div>
+
+          </Grid >
+          <Grid item className="itemBox" xs={12} sm={3} md={3}>
+
+            <div className="keyword"> item </div>
+
+          </Grid >
+            {keywords.keywords.map((keyword, index) => (
+              <Grid item className="itemBox" xs={12} sm={3} md={3} key={index}>
+                <Paper className="paper">
+                  <Link to={`/promises?keyword=${keyword}`}>
+                    <div className="keyword"> {keyword} </div>
+                  </Link>
+                </Paper>
+              </Grid>
+            ))}
+          </Grid >
+         </Grid>
+      </Container >
+     </div>
+    );
+  }
+}
+          
 export default Home;
