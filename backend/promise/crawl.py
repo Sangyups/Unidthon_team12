@@ -26,13 +26,13 @@ def get_news_contents(url):
     return article
 
 
-def get_naver_news():
+def get_naver_news(search):
     url = "https://openapi.naver.com/v1/search/news.json"
     headers = {
         "X-Naver-Client-Id": NAVER_CLIENT_ID,
         "X-Naver-Client-Secret": NAVER_CLIENT_SECRET,
     }
-    params = {"query": "청년 공약", "display": 30, "sort": "sim"}
+    params = {"query": search, "display": 30, "sort": "sim"}
     response = requests.get(url, headers=headers, params=params)
     results = response.json()
     items = results["items"]

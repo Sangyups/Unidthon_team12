@@ -13,7 +13,8 @@ def promiseFilter(promise_list, keyword, threshold=0.42):
         os.path.abspath(os.path.dirname(__file__)) + "/model/ko.bin"
     )
     return_list = []
-    processed_list = [okt.nouns(promise) for promise in promise_list]
+
+    processed_list = [okt.nouns(promise["contents"]) for promise in promise_list]
 
     for item in processed_list:
         if item != []:

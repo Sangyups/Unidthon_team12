@@ -1,35 +1,21 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from promise import serializers
+from rest_framework.permissions import IsAdminUser
+from rest_framework.authentication import BasicAuthentication
 
-from promise.models import Promises
-from promise.serializers import PromisesSerializer
-from promise import crawl
+from promise import serializers, crawl
+from promise.models import Promises, Candidates
+from promise.serializers import PromisesSerializer, CandidatesSerializer
 from datetime import datetime
 from pytz import timezone
 
-from promise import crawl
-
-# Create your views here.
-# http://apis.data.go.kr/9760000/ElecPrmsInfoInqireService/getCnddtElecPrmsInfoInqire?serviceKey=ipudQMv%2Fc9OkEQxz%2FNbnsRrwTdIbcIrRXhXBFdzahDf9XIEGEji%2Bko%2BmUpQh233w%2B4hWhmpu%2B0Hg6pMS0q0GRQ%3D%3D&sgId=20170509&sgTypecode=1&cnddtId=100120965.json
-
-
-# naver new search
-# https://openapi.naver.com/v1/search/news.json
-
 from dotenv import load_dotenv
-import requests
-import os
-import json
-import sys
-import xmltodict
+import requests, os, json, sys
 
 sys.path.append(
     os.path.dirname(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 )
-from algorithm import keyword, similarity
-
-# from algorithm import similarity
+from algorithm import similarity
 
 load_dotenv(verbose=True)
 DATA_PORTAL_KEY = os.getenv("DATA_PORTAL_KEY")
@@ -37,30 +23,44 @@ DATA_PORTAL_KEY = os.getenv("DATA_PORTAL_KEY")
 
 class KeywordsView(APIView):
     def get(self, request, format=None):
-        keywords = crawl.get_naver_news()
+        search_list = ["주택", "취업", "교육", "진로"]
+        keywords = []
+        for search in search_list:
+            keyword = crawl.get_naver_news(search)
+            for i in keyword:
+                keywords.append(i)
+
         return Response({"keywords": keywords})
 
 
 class PromiseView(APIView):
     def get(self, request, format=None):
-        promise = Promises.objects.all()
-        serializer = PromisesSerializer(promise, many=True)
-        # send promises filtered with keyword
-        promise_list = []
-        for promise in serializer.data:
-            # if()
-            promise_list.append(promise["contents"])
-
-        filter_list = similarity.promiseFilter(promise_list, "취업")
-        return Response({"status": promise_list})
+        candidates = Candidates.objects.all()
+        serializer = CandidatesSerializer(candidates, many=True)
+        keyword = request.GET["keyword"]
+        results = []
+        for candidate in serializer.data:
+            res = {}
+            res["name"] = candidate["name"]
+            res["party"] = candidate["party"]
+            filter_list = similarity.promiseFilter(candidate["promises"], keyword)
+            keys = ["realm", "title", "contents"]
+            res["promises"] = []
+            for item in filter_list:
+                res["promises"].append({key: item[key] for key in keys})
+            results.append(res)
+        return Response(results)
 
 
 class AdminView(APIView):
+
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAdminUser]
+
     def get(self, request, format=None):
-        # info[] = {candiatename, party, promise[10]}
-        # info[3] = filter(info[3])
-        # info[3] = filtered_promise[10]
         data = Promises.objects.all()
+        data.delete()
+        data = Candidates.objects.all()
         data.delete()
 
         url = "http://apis.data.go.kr/9760000/CommonCodeService/getCommonSgCodeList"
@@ -72,7 +72,7 @@ class AdminView(APIView):
         }
         response = requests.get(url, params=params)
         results = json.loads(response.content)["getCommonSgCodeList"]["item"]
-
+        # print(results)
         dt = datetime.now(timezone("UTC"))
         KST = timezone("Asia/Seoul")
         dt_korea = dt.astimezone(KST)
@@ -97,23 +97,23 @@ class AdminView(APIView):
             }
 
             response = requests.get(url, params=params)
-            # print(response.content)
-            # dict_data = xmltodict.parse(response.content)
-            # print(json.loads(json.dumps(dict_data)))
-            # xml_dict = json.loads(json.dumps(dict_data))["response"]["body"]["items"][
-            #     "item"
-            # ]
-
             try:
                 xml_dict = json.loads(response.content)[
                     "getPofelcddRegistSttusInfoInqire"
                 ]["item"]
+                p = {}
                 for candidate in xml_dict:
-                    candidates.append(candidate)
+                    p["hubo_id"] = candidate["HUBOID"]
+                    p["name"] = candidate["NAME"]
+                    p["party"] = candidate["JD_NAME"]
+                    serializer = serializers.CandidatesSerializer(data=p)
+                    if serializer.is_valid():
+                        serializer.save()
+                        candidates.append(candidate)
+                    else:
+                        print(serializer.errors)
             except:
                 pass
-
-            # print(json.loads(response.content))
 
         for candidate in candidates:
             url = "http://apis.data.go.kr/9760000/PartyPlcInfoInqireService/getPartyPlcInfoInqire"
@@ -138,9 +138,8 @@ class AdminView(APIView):
                     promises["contents"] = items["prmmCont{}".format(i)]
                     promises["realm"] = items["prmsRealmName{}".format(i)]
                     promises["title"] = items["prmsTitle{}".format(i)]
-                    promises["party"] = candidate["JD_NAME"]
-                    promises["candidate"] = candidate["NAME"]
                     promises["vote_date"] = candidate["SG_ID"]
+                    promises["written_by"] = candidate["HUBOID"]
                 except:
                     break
 
@@ -153,6 +152,3 @@ class AdminView(APIView):
                 i += 1
 
         return Response({"status": "done"})
-
-
-# -> 선거정보 -> 후보자 -> 공약

@@ -8,5 +8,6 @@ __pycache__/
 
 # algorithm
 /unid
+/algorithm/model
 
 .DS_Store
