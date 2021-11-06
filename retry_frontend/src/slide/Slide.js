@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../card/Card';
 import Slider from 'react-slick';
-import Popup from '../slide/Popup'
+import Popup from '../slide/Popup';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styled from 'styled-components';
 import qs from 'qs';
 import axios from 'axios';
 import Loading from '../loading/Loading';
+import Detail from '../card/Detail';
+import { Link } from 'react-router-dom';
 
 const Wrap = styled.div`
   margin: 5% auto;
@@ -39,7 +41,6 @@ const Slide = ({ location }) => {
     ignoreQueryPrefix: true,
   });
   const keyword = query.keyword; // 쿼리의 파싱결과값은 문자열입니다.
-  console.log(keyword);
   const [promises, setPromises] = useState([
     {
       name: '문재인',
@@ -51,17 +52,18 @@ const Slide = ({ location }) => {
       name: '심상정',
       party: '정의당',
       title: '임시 데이터 입니다1',
-      contents: '임시 내용입니다',
+      contents: '임시 내용입니다1',
     },
     {
       name: '안철수',
       party: '국민의당',
       title: '임시 데이터 입니다2',
-      contents: '임시 내용입니다',
+      contents: '임시 내용입니다2',
     },
   ]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [modalContent, setModalContent] = useState('');
 
   //   useEffect(() => {
   //     const fetchUsers = async () => {
@@ -85,28 +87,38 @@ const Slide = ({ location }) => {
   //     fetchUsers();
   //   }, []);
 
-  console.log(promises);
-
   // 공유하기 버튼을 위한 state
-  const [buttonPopup, setButtonPopup] = React.useState(0);
+  const [buttonPopup, setButtonPopup] = React.useState(false);
+  const [savePopup, setSavePopup] = React.useState(false);
+  useEffect(() => {
+    const modalContentBox = document.getElementById('modal-content');
+    modalContentBox.innerHTML = modalContent;
+  }, [modalContent]);
 
   if (loading) return <Loading />;
   if (error) return <div>에러가 발생했습니다</div>;
   if (!promises) return null;
 
   return (
-    <Wrap>
-      <Slider {...settings}>
-        <Card setTrigger={setButtonPopup} />
-        <Card setTrigger={setButtonPopup} />
-        <Card setTrigger={setButtonPopup} />
-        <Card setTrigger={setButtonPopup} />
-        <Card setTrigger={setButtonPopup} />
-        <Card setTrigger={setButtonPopup} />
-      </Slider>
+    <>
+      <Wrap>
+        <Slider {...settings}>
+          {promises.map((promise, index) => (
+            <Card
+              {...promise}
+              key={index}
+              setButtonTrigger={setButtonPopup}
+              setSaveTrigger={setSavePopup}
+              setModalContent={setModalContent}
+            />
+          ))}
+        </Slider>
+      </Wrap>
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup} />
-
-    </Wrap>
+      <Popup trigger={savePopup} setTrigger={setSavePopup} />
+      <Link to="/">Home</Link>
+      <Detail />
+    </>
   );
 };
 

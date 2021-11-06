@@ -2,10 +2,10 @@ import React from 'react';
 import './Popup.css';
 
 const Popup = (props) => {
-  return (props.trigger) ? (
+  return props.trigger ? (
     <div className="popup">
       <div className="container">
-        <button className="close-btn" onClick={() => props.setTrigger(false)}>
+        <button className="close-btn" onClick={() => props.setTrigger(0)}>
           X
         </button>
 
@@ -34,11 +34,11 @@ const Popup = (props) => {
         </div>
 
         {props.children}
-
       </div>
     </div>
-  ) : "";
+  ) : (
+    ''
+  );
 };
-
 
 export default Popup;
