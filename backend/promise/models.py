@@ -8,3 +8,7 @@ class Promises(models.Model):
     realm = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
     contents = models.TextField()
+
+
+class Keywords(models.Model):
+    keyword = models.CharField(max_length=30)

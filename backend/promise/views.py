@@ -4,7 +4,7 @@ from promise import serializers
 
 from promise.models import Promises
 from promise.serializers import PromisesSerializer
-
+from promise import crawl
 from datetime import datetime
 from pytz import timezone
 
@@ -21,56 +21,45 @@ from dotenv import load_dotenv
 import requests
 import os
 import json
+import sys
 import xmltodict
+
+sys.path.append(
+    os.path.dirname(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+)
+from algorithm import keyword, similarity
+
+# from algorithm import similarity
 
 load_dotenv(verbose=True)
 DATA_PORTAL_KEY = os.getenv("DATA_PORTAL_KEY")
-NAVER_CLIENT_ID = os.getenv("NAVER_CLIENT_ID")
-NAVER_CLIENT_SECRET = os.getenv("NAVER_CLIENT_SECRET")
+
+
+class KeywordsView(APIView):
+    def get(self, request, format=None):
+        keywords = crawl.get_naver_news()
+        return Response({"keywords": keywords})
 
 
 class PromiseView(APIView):
     def get(self, request, format=None):
-        # url = "http://apis.data.go.kr/9760000/ElecPrmsInfoInqireService/getCnddtElecPrmsInfoInqire"
-        # params = {
-        #     "ServiceKey": DATA_PORTAL_KEY,
-        #     "sgId": "20170509",  # 선거 id (날짜)
-        #     "sgTypecode": "1",  # 선거 type
-        #     "cnddtId": "100120965",  # 선거자 id
-        #     "resultType": "json",
-        #     "numOfRows": 30,
-        # }
-        # response = requests.get(url, params=params)
+        promise = Promises.objects.all()
+        serializer = PromisesSerializer(promise, many=True)
+        # send promises filtered with keyword
+        promise_list = []
+        for promise in serializer.data:
+            # if()
+            promise_list.append(promise["contents"])
 
-        url = "https://openapi.naver.com/v1/search/news.json"
-        headers = {
-            "X-Naver-Client-Id": NAVER_CLIENT_ID,
-            "X-Naver-Client-Secret": NAVER_CLIENT_SECRET,
-        }
-        params = {"query": "청년 공약", "display": 30, "sort": "sim"}
-        response = requests.get(url, headers=headers, params=params)
-        results = response.json()
-        items = results["items"]
-        news_link = []
-        articles = []
-        descriptions = []
-        for item in items:
-            link = item["link"]
-            description = item["description"]
-            news_link.append(link)
-            content = crawl.get_news_contents(link)
-            if content:
-                articles.append(content)
-            descriptions.append(description)
-        # for link in news_link:
-        #     print(link)
-        return Response({"article": articles})
-        # return Response(json.loads(response.content))
+        filter_list = similarity.promiseFilter(promise_list, "취업")
+        return Response({"status": promise_list})
 
 
 class AdminView(APIView):
     def get(self, request, format=None):
-
+        # info[] = {candiatename, party, promise[10]}
+        # info[3] = filter(info[3])
+        # info[3] = filtered_promise[10]
         data = Promises.objects.all()
         data.delete()
 
