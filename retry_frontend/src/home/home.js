@@ -7,8 +7,6 @@ import { withRouter } from 'react-router-dom';
 import './home.css';
 import Slide from '../slide/Slide';
 
-import { withRouter } from 'react-router';
-
 import { HashRouter, Link } from 'react-router-dom';
 import axios from 'axios';
 import Loading from '../loading/Loading';
@@ -54,11 +52,11 @@ const Home = () => {
           justifyContent="space-between"
           mb={5}
         >
-          <Typography variant="h3" sx={{ pl: '3%', mb: '-2%', transform: skewY('-8deg') }}>
+          <Typography variant="h3" sx={{ pl: '3%', mb: '-2%'}}>
             #새싹들, 
           </Typography>
         </Stack>
-        <Grid container spacing={3} sx={{ width: '60%', pl: '2%', transform: skewY('-8deg') }}>
+        <Grid container spacing={3} sx={{ width: '60%', pl: '2%'}}>
           {keywords.keywords.map((keyword, index) => (
             <Grid item className="itemBox" xs={12} sm={3} md={3} key={index}>
               <Paper className="paper">

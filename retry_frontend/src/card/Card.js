@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import './Card.css';
 
-const Card = ({ name, party, title, contents }) => {
+const Card = ({ name, party, title, contents, props }) => { //!여기 props 없으니까 에러발생하던데
   return (
     <div className="card">
       <div

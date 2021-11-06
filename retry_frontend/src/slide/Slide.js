@@ -85,14 +85,14 @@ const Slide = ({ location }) => {
   //     fetchUsers();
   //   }, []);
 
-  if (loading) return <Loading />;
-  if (error) return <div>에러가 발생했습니다</div>;
-  if (!promises) return null;
-
   console.log(promises);
 
   // 공유하기 버튼을 위한 state
   const [buttonPopup, setButtonPopup] = React.useState(0);
+
+  if (loading) return <Loading />;
+  if (error) return <div>에러가 발생했습니다</div>;
+  if (!promises) return null;
 
   return (
     <Wrap>

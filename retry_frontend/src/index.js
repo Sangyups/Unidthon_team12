@@ -3,7 +3,7 @@
 
 import Slide from './slide/Slide';
 import Card from './card/Card';
-import Router from './routes';
+import BrowserRouter from './routes';
 import App from './App';
 
 import React from 'react';
