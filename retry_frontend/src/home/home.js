@@ -3,22 +3,18 @@ import React from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Grid, Paper, Stack, Typography } from '@mui/material';
 
+export * from "react-router";
+import { withRouter } from "react-router-dom";
+
 import './home.css';
 import '../styles/fonts.css';
-import Slide from '../slide/Slide';
-
-import { withRouter } from 'react-router';
-
 // ----------------------------------------------------------------------
 
 class Home extends React.Component {
-    constructor(props){
-        super(props);
-    }
 
     goToSlide = () => {
-        //this.props.history.push('/Slide'); 여기가 일단 안되서 주석처리
-    }
+        this.props.history.push("/slides");
+    };
 
     render() {
         return (
@@ -30,12 +26,12 @@ class Home extends React.Component {
                 </Stack>
 
                 <Grid container spacing={3} sx={{ width: '60%', pl:'2%' }}>
-                    <Grid item className="itemBox" xs={12} sm={3} md={3} onClick={this.goToSlide} >
+                    <Grid item className="itemBox" xs={12} sm={3} md={3} >
                         <Paper className="paper">
-                            <div className="keyword"> 클릭 </div>
+                            <button onClick={this.goToSlide}> 이거 </button>
                         </Paper>
                     </Grid>
-                    <Grid item className="itemBox" xs={12} sm={3} md={3} onClick={this.goToSlide} >
+                    <Grid item className="itemBox" xs={12} sm={3} md={3}>
                         <Paper className="paper"><div className="keyword"> item </div></Paper>
                     </Grid>
                     <Grid item className="itemBox" xs={12} sm={3} md={3}>
@@ -66,4 +62,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+export default withRouter(Home);

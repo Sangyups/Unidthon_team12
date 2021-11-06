@@ -13,6 +13,9 @@ import reportWebVitals from './reportWebVitals';
 
 import Loading from './loading/Loading';
 
+import { Router, Route, Link } from 'react-router-dom';
+import history from './history';
+
 ReactDOM.render(
   <React.StrictMode>
     {/* <Loading /> */}
