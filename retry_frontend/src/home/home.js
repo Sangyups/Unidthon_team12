@@ -6,7 +6,7 @@ import { Container, Grid, Paper, Stack, Typography } from '@mui/material';
 import { withRouter } from 'react-router-dom';
 
 import './home.css';
-import '../styles/fonts.css';
+import Slide from '../slide/Slide';
 
 import Detail from '../card/Detail';
 import { HashRouter, Link } from 'react-router-dom';
@@ -20,7 +20,6 @@ const Home = () => {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [modalContent, setModalContent] = useState('');
 
   // useEffect(() => {
   //   const fetchUsers = async () => {
@@ -71,7 +70,6 @@ const Home = () => {
           ))}
         </Grid>
       </Container>
-      <Detail />
     </div>
   );
 };
