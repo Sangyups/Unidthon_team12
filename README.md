@@ -9,6 +9,9 @@
 ```bash
 git clone https://github.com/Unidthon/Hackathon_team12.git
 cd Hackathon_team12/backend
+current directory에 .env 파일 저장
 pip3 install -r requirements.txt
 python manage.py runserver
 ```
+
+.env 파일 링크 = https://koreaoffice-my.sharepoint.com/:u:/g/personal/qwerty97532_korea_edu/EehW9E3bN0FGnfuKcGa1Un0BVtUTGc5ddrW5WCCTxXF7RQ?e=4QxfaC

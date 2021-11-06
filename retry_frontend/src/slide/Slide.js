@@ -41,58 +41,41 @@ const Slide = ({ location }) => {
     ignoreQueryPrefix: true,
   });
   const keyword = query.keyword; // 쿼리의 파싱결과값은 문자열입니다.
-  const [promises, setPromises] = useState([
-    {
-      name: '문재인',
-      party: '더불어민주당',
-      title: '임시 데이터 입니다',
-      contents: '임시 내용입니다',
-    },
-    {
-      name: '심상정',
-      party: '정의당',
-      title: '임시 데이터 입니다1',
-      contents: '임시 내용입니다1',
-    },
-    {
-      name: '안철수',
-      party: '국민의당',
-      title: '임시 데이터 입니다2',
-      contents: '임시 내용입니다2',
-    },
-  ]);
+  const [promises, setPromises] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [modalContent, setModalContent] = useState('');
 
-  //   useEffect(() => {
-  //     const fetchUsers = async () => {
-  //       try {
-  //         // 요청이 시작 할 때에는 error 와 promises 를 초기화하고
-  //         setError(null);
-  //         setPromises(null);
-  //         // loading 상태를 true 로 바꿉니다.
-  //         setLoading(true);
-  //         const response = await axios.get(
-  //           `http://localhost:8000/api/promise/?keyword=${keyword}`
-  //         );
-  //         setPromises(response.data); // 데이터는 response.data 안에 들어있습니다.
-  //       } catch (e) {
-  //         console.log(e);
-  //         setError(e);
-  //       }
-  //       setLoading(false);
-  //     };
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        // 요청이 시작 할 때에는 error 와 promises 를 초기화하고
+        setError(null);
+        setPromises(null);
+        // loading 상태를 true 로 바꿉니다.
+        setLoading(true);
+        const response = await axios.get(
+          `http://localhost:8000/api/promise/?keyword=${keyword}`
+        );
+        setPromises(response.data); // 데이터는 response.data 안에 들어있습니다.
+      } catch (e) {
+        console.log(e);
+        setError(e);
+      }
+      setLoading(false);
+    };
 
-  //     fetchUsers();
-  //   }, []);
+    fetchUsers();
+  }, []);
 
   // 공유하기 버튼을 위한 state
-  const [buttonPopup, setButtonPopup] = React.useState(false);
-  const [savePopup, setSavePopup] = React.useState(false);
+  const [buttonPopup, setButtonPopup] = React.useState(0);
+  const [savePopup, setSavePopup] = React.useState(0);
   useEffect(() => {
     const modalContentBox = document.getElementById('modal-content');
-    modalContentBox.innerHTML = modalContent;
+    if (modalContentBox) {
+      modalContentBox.innerHTML = modalContent;
+    }
   }, [modalContent]);
 
   if (loading) return <Loading />;

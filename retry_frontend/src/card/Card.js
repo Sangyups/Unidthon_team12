@@ -22,14 +22,14 @@ const Card = ({
             <img
               src="img/share.png"
               alt="share"
-              onClick={() => setButtonTrigger(true)}
+              onClick={() => setButtonTrigger(1)}
             ></img>
           </a>
           <a href="#">
             <img
               src="img/bookmark.png"
               alt="bookmark"
-              onClick={() => setSaveTrigger(true)}
+              onClick={() => setSaveTrigger(2)}
             ></img>
           </a>
         </nav>
