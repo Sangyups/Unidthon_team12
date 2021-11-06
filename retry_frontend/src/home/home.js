@@ -1,13 +1,12 @@
+// 이 파일들은 다른 import 보다 상단에 위치해야 함
+import './home.css';
+import '../styles/fonts.css';
+import { withRouter } from "react-router-dom";
 //
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Paper, Stack, Typography } from '@mui/material';
 
-export * from "react-router";
-import { withRouter } from "react-router-dom";
-
-import './home.css';
-import '../styles/fonts.css';
 // ----------------------------------------------------------------------
 
 class Home extends React.Component {

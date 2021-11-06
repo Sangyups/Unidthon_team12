@@ -1,3 +1,17 @@
+body{
+	background-color: rgb(252, 255, 240) !important;
+	transform: skewY(0deg) !important;
+}
+
+.slide{
+  position: relative;
+  vertical-align: middle;
+  margin-left: 30%;
+  margin-right: auto;
+  padding-top: 8%;
+
+}
+
 .slack-slider {
   display: flex;
 }

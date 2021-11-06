@@ -1,13 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
 // for dev
 import './index.css';
 
-
-import Slide from './slide/Slide';
-import Card from './card/Card';
-import Home from './home/home';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -15,11 +12,15 @@ import reportWebVitals from './reportWebVitals';
 
 import { Router, Route, Link } from 'react-router-dom';
 import history from './history';
+import Home from './home/home';
+import Slide from './slide/Slide';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Home />
-  </React.StrictMode>,
+  <HelmetProvider>
+    <BrowserRouter>
+      <Slide />
+    </BrowserRouter>
+  </HelmetProvider>,
   document.getElementById('root')
 );
 
