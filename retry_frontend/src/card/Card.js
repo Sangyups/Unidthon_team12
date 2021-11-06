@@ -1,15 +1,18 @@
 import { height } from '@mui/system';
 import React from 'react';
+import { useState } from 'react';
 import "./Card.css";
 
+
 const Card = (props) => {
+
     return (
         <div className="card">
 
             <div className="container" style={{ width: props.width, height: props.height }}>
 
                 <nav className="menu">
-                    <a href="#"><img src="img/share.png" alt="share"></img></a>
+                    <a href="#" onClick={() => props.setTrigger(true)}><img src="img/share.png" alt="share"></img></a>
                     <a href="#"><img src="img/bookmark.png" alt="bookmark"></img></a>
                 </nav>
 
@@ -26,6 +29,7 @@ const Card = (props) => {
                     </div>
                 </section>
             </div>
+
 
         </div>
     )

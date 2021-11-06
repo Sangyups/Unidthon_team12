@@ -2,18 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // for dev
-// import './index.css';
+import './index.css';
+
+
 import Slide from './slide/Slide';
 import Card from './card/Card';
-
 import Home from './home/home';
+
 import reportWebVitals from './reportWebVitals';
 
 import Loading from './loading/Loading';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Loading />
+    {/* <Loading /> */}
+    <Home />
   </React.StrictMode>,
   document.getElementById('root')
 );
