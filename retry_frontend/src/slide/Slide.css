@@ -1,8 +1,27 @@
+body{
+	background-color: rgb(221, 255, 252);
+}
+
+.slide{
+  position: relative;
+  vertical-align: middle;
+  margin-left: 10%;
+  margin-right: auto;
+  margin-top: 20%;
+  text-align: center;
+}
+
 .slack-slider {
   display: flex;
 }
 
 .slack-arrow {
   margin-top: 10px;
-  position: relative;
+  position: absolute;
+}
+
+.cardSlide{
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
 }

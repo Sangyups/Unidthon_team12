@@ -61,30 +61,6 @@ const Home = () => {
               </Paper>
             </Grid>
           ))}
-
-        </Grid>
-        <Grid container spacing={4} sx={{ width: '70%', pt: '2%', pl: '7%' }}>
-          <Grid item className="itemBox" xs={12} sm={3} md={3}>
-            <Paper className="paper">
-              <div className="keyword"> item </div>
-            </Paper>
-          </Grid>
-          <Grid item className="itemBox" xs={12} sm={3} md={3}>
-            <Paper className="paper">
-              <div className="keyword"> item </div>
-            </Paper>
-          </Grid>
-          <Grid item className="itemBox" xs={12} sm={3} md={3}>
-            <Paper className="paper">
-              <div className="keyword"> item </div>
-            </Paper>
-          </Grid>
-          <Grid item className="itemBox" xs={12} sm={3} md={3}>
-            <Paper className="paper">
-              <div className="keyword"> item </div>
-            </Paper>
-          </Grid>
-        </Grid>
       </Container>
     </div>
   );

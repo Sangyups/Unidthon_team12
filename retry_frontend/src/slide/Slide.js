@@ -12,18 +12,20 @@ import Detail from '../card/Detail';
 import { Link } from 'react-router-dom';
 
 const Wrap = styled.div`
-  margin: 5% auto;
-  width: 50vw;
-  height: 80vh;
+  margin: 13% auto;
+  width: 70vw;
+  height: 95vh;
   .slick-prev:before {
     opaicty: 1; // 기존에 숨어있던 화살표 버튼이 보이게
     color: black; // 버튼 색은 검은색으로
     font-size: 40px;
+    padding-right:10px;
   }
   .slick-next:before {
     opacity: 1;
     color: black;
     font-size: 40px;
+    padding-left: 10px;
   }
 `;
 
@@ -35,7 +37,8 @@ const Slide = ({ location }) => {
     slidesToShow: 1,
     className: 'center',
     centerMode: true,
-    centerPadding: '60px',
+    Width: '2px',
+    centerPadding: '100px',
   };
   const query = qs.parse(location.search, {
     ignoreQueryPrefix: true,
@@ -101,7 +104,7 @@ const Slide = ({ location }) => {
 
   return (
     <>
-      <Wrap>
+      <Wrap className="cardSlide">
         <Slider {...settings}>
           {promises.map((promise, index) => (
             <Card
