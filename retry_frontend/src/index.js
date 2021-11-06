@@ -9,11 +9,11 @@ import Card from './card/Card';
 import Home from './home/home';
 import reportWebVitals from './reportWebVitals';
 
-import Loading from './loading/Loading';
+// import Loading from './loading/Loading';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Loading />
+    <Slide />
   </React.StrictMode>,
   document.getElementById('root')
 );

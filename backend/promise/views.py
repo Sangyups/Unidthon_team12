@@ -45,11 +45,10 @@ class PromiseView(APIView):
             res["name"] = candidate["name"]
             res["party"] = candidate["party"]
             filter_list = similarity.promiseFilter(candidate["promises"], keyword)
-            keys = ["realm", "title", "contents"]
-            res["promises"] = []
             for item in filter_list:
-                res["promises"].append({key: item[key] for key in keys})
-            results.append(res)
+                res["title"] = item["title"]
+                res["contents"] = item["contents"]
+                results.append(res)
         return Response(results)
 
 
