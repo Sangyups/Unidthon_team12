@@ -1,14 +1,19 @@
 import { height } from '@mui/system';
 import React from 'react';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import './Card.css';
 =======
+=======
+>>>>>>> 50645d87285c89f682a0558bdd2d91b00a20dc6c
 import { useState } from 'react';
 import "./Card.css";
 >>>>>>> 50645d87285c89f682a0558bdd2d91b00a20dc6c
 
 
+
 const Card = (props) => {
+<<<<<<< HEAD
 <<<<<<< HEAD
   return (
     <div className="card">
@@ -47,6 +52,8 @@ const Card = (props) => {
 
 export default Card;
 =======
+=======
+>>>>>>> 50645d87285c89f682a0558bdd2d91b00a20dc6c
 
     return (
         <div className="card">

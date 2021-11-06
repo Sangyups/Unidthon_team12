@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // import React from 'react'
 
 // const Loading = () => {
@@ -81,6 +82,8 @@
 //     )
 // }
 =======
+=======
+>>>>>>> 50645d87285c89f682a0558bdd2d91b00a20dc6c
 import React from 'react';
 import './Loading.css';
 

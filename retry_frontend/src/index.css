@@ -1,5 +1,6 @@
 body {
 <<<<<<< HEAD
+<<<<<<< HEAD
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -14,6 +15,8 @@ body {
   background-attachment: fixed;
   background-size: 70%;
 =======
+=======
+>>>>>>> 50645d87285c89f682a0558bdd2d91b00a20dc6c
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
 		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
@@ -27,6 +30,9 @@ body {
 	background-position: 40vw;
 	background-attachment: fixed;
 	background-size: 70%;
+<<<<<<< HEAD
+>>>>>>> 50645d87285c89f682a0558bdd2d91b00a20dc6c
+=======
 >>>>>>> 50645d87285c89f682a0558bdd2d91b00a20dc6c
 }
 

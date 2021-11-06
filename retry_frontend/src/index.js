@@ -16,7 +16,12 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Slide />
+=======
+    {/* <Loading /> */}
+    <Home />
+>>>>>>> 50645d87285c89f682a0558bdd2d91b00a20dc6c
 =======
     {/* <Loading /> */}
     <Home />
