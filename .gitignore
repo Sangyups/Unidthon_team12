@@ -3,5 +3,11 @@
 
 # backend
 /venv
-/__pycache__
+__pycache__/
 .env
+
+# algorithm
+/unid
+/algorithm/model
+
+.DS_Store

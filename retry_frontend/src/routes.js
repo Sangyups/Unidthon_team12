@@ -9,8 +9,8 @@ export default function Router() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" component={Home} />
-        <Route exact path="/slides" component={Slide} />.
+        {/* <Route exact path="/slides" component={Slide} /> */}
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
