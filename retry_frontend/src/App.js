@@ -1,15 +1,15 @@
-//
-import { HashRouter, Route } from 'react-router-dom';
-
-//
+import React from 'react';
+import { Route } from 'react-router-dom';
 import Home from './home/home';
 import Slide from './slide/Slide';
 
-export default function Router() {
+const App = () => {
   return (
-    <HashRouter>
+    <>
       <Route exact path="/" component={Home} />
       <Route exact path="/promises" component={Slide} />
-    </HashRouter>
+    </>
   );
-}
+};
+
+export default App;
