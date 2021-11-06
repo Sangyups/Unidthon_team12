@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React from 'react'
 
 // const Loading = () => {
@@ -79,5 +80,27 @@
 //         </div>
 //     )
 // }
+=======
+import React from 'react';
+import './Loading.css';
+
+const Loading = () => {
+    return (
+        <div className="loading">
+
+            <div className="container">
+                <div className="inner">
+                    <div><div><img src="img/sprout.png"></img></div><div></div><div></div></div>
+                    <div><div></div><div></div><div></div></div>
+                </div>
+            </div>
+
+            <span>
+                Loading...
+            </span>
+        </div>
+    )
+}
+>>>>>>> 50645d87285c89f682a0558bdd2d91b00a20dc6c
 
 // export default Loading

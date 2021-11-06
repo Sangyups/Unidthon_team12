@@ -1,0 +1,118 @@
+@charset "utf-8";
+
+@keyframes inner-1 {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(-45deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+@keyframes inner-2 {
+	0% {
+		transform: rotate(180deg);
+	}
+	50% {
+		transform: rotate(225deg);
+	}
+	100% {
+		transform: rotate(180deg);
+	}
+}
+@keyframes inner-3 {
+	0% {
+		transform: translate(190px, 0);
+		opacity: 0;
+	}
+	20% {
+		opacity: 1;
+	}
+	100% {
+		transform: translate(70px, 0);
+		opacity: 1;
+	}
+}
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Press+Start+2P&display=swap");
+
+.loading {
+	width: 100%;
+	height: 50vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/* 이미지 */
+.loading .container {
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.inner > div:nth-child(2) {
+	transform: translate(-15px, 0);
+}
+.inner > div:nth-child(2) div {
+	position: absolute;
+	top: 40px;
+	left: 40px;
+	width: 120px;
+	height: 60px;
+	border-radius: 120px 120px 0 0;
+	background: #b3c430;
+	animation: inner-1 1s linear infinite;
+	transform-origin: 60px 60px;
+}
+.inner > div:nth-child(2) div:nth-child(2) {
+	animation: inner-2 1s linear infinite;
+}
+.inner > div:nth-child(2) div:nth-child(3) {
+	transform: rotate(-90deg);
+	animation: none;
+}
+.inner > div:nth-child(1) {
+	display: block;
+}
+.inner > div:nth-child(1) div {
+	position: absolute;
+	top: 92px;
+	left: -8px;
+	width: 16px;
+	height: 16px;
+	animation: inner-3 1s linear infinite;
+}
+.inner > div:nth-child(1) div img {
+	width: 34px;
+	height: 34px;
+}
+.inner > div:nth-child(1) div img:nth-child(1) {
+	animation-delay: -0.67s;
+}
+.inner > div:nth-child(1) div img:nth-child(2) {
+	animation-delay: -0.33s;
+}
+.inner > div:nth-child(1) div img:nth-child(3) {
+	animation-delay: 0s;
+}
+.inner {
+	width: 100%;
+	height: 200%;
+	position: relative;
+	transform: translateZ(0) scale(1);
+	backface-visibility: hidden;
+	transform-origin: 0 0;
+}
+.inner div {
+	box-sizing: content-box;
+}
+
+/* 텍스트 */
+.loading span {
+	font-size: 20px;
+	font-family: "Press Start 2P";
+}

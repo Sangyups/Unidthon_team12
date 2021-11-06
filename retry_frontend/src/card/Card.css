@@ -8,6 +8,11 @@
   font-style: normal;
 }
 
+* {
+	margin: 0;
+	padding: 0;
+}
+
 /* 초기화 */
 .card {
   box-sizing: border-box;
