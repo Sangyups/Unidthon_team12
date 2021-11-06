@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Paper, Stack, Typography } from '@mui/material';
 
 import './home.css';
-import '../styles/fonts.css';
 import Slide from '../slide/Slide';
 
 import { withRouter } from 'react-router';

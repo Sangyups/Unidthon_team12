@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Card from '../card/Card';
 import Slider from 'react-slick';
+import Popup from '../slide/Popup'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styled from 'styled-components';
@@ -32,16 +33,21 @@ const Slide = () => {
     centerPadding: '60px',
   };
 
+  // 공유하기 버튼을 위한 state
+  const [buttonPopup, setButtonPopup] = React.useState(0);
+
   return (
     <Wrap>
       <Slider {...settings}>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <Card setTrigger={setButtonPopup} />
+        <Card setTrigger={setButtonPopup} />
+        <Card setTrigger={setButtonPopup} />
+        <Card setTrigger={setButtonPopup} />
+        <Card setTrigger={setButtonPopup} />
+        <Card setTrigger={setButtonPopup} />
       </Slider>
+      <Popup trigger={buttonPopup} setTrigger={setButtonPopup} />
+
     </Wrap>
   );
 };

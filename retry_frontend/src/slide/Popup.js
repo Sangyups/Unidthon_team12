@@ -2,7 +2,7 @@ import React from 'react';
 import './Popup.css';
 
 const Popup = (props) => {
-  return props.trigger ? (
+  return (props.trigger) ? (
     <div className="popup">
       <div className="container">
         <button className="close-btn" onClick={() => props.setTrigger(false)}>
@@ -11,7 +11,8 @@ const Popup = (props) => {
 
         <h1>공유하기</h1>
         <br />
-        <h2>후보자의 정보를 공유해주세요</h2>
+
+        <h2>후보자의 정보를 공유해보세요</h2>
 
         <div className="group">
           <a href="#">
@@ -33,11 +34,11 @@ const Popup = (props) => {
         </div>
 
         {props.children}
+
       </div>
     </div>
-  ) : (
-    ''
-  );
+  ) : "";
 };
+
 
 export default Popup;

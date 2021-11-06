@@ -1,6 +1,7 @@
 import { height } from '@mui/system';
 import React from 'react';
 import { useState } from 'react';
+
 import './Card.css';
 
 const Card = (props) => {
@@ -8,6 +9,7 @@ const Card = (props) => {
     <div className="card">
       <div
         className="container"
+
         style={{ width: props.width, height: props.height }}
       >
         <nav className="menu">
