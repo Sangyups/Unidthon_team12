@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   
-  background-image: url('./home/main_page.jpg');
+  background : linear-gradient(45deg, #ffffff, #777777);
   transform: skewY(-11deg);
   background-repeat: no-repeat;
   background-position: 40vw;
