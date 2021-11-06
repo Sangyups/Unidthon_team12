@@ -31,7 +31,9 @@ const POST_TITLES = [
   'How to Animate a SVG with border-image'
 ];
 
-const posts = [...Array(23)].map((_, index) => ({
+//! 여기 값을 수정해 총 몇개의 키워드를 가져올지 결정할 수 있음
+
+const posts = [...Array(7)].map((_, index) => ({
   id: faker.datatype.uuid(),
   cover: mockImgCover(index + 1),
   title: POST_TITLES[index + 1],
