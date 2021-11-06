@@ -14,6 +14,12 @@ python manage.py runserver
 ```
 
 ## Frontend
+```bash
+cd Hackathon_team12/frontend
+npm install
+npm start
+```
+
 
 ### Mainly Used Framework
 React
