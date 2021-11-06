@@ -22,7 +22,7 @@ import {
 export default function DashboardApp() {
   return (
     <Page title="Dashboard | Minimal-UI">
-      <Container sx={{ width: '50%' }}>
+      <Container sx={{ maxWidth: '50%', height: '100%' }}>
         <Box sx={{ pt: 5, pb: 5 }}>
           <Typography variant="h4">Hi, Welcome back</Typography>
         </Box>
