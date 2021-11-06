@@ -21,6 +21,7 @@ class Home extends React.Component {
 
   render() {
     return (
+
       <Container sx={{ pt: '8%' }}>
         <Stack
           direction="row"
@@ -28,8 +29,8 @@ class Home extends React.Component {
           justifyContent="space-between"
           mb={5}
         >
-          <Typography variant="h3" sx={{ pl: '3%', mb: '-2%' }}>
-            #새싹들
+          <Typography className="typography" variant="h3" sx={{ pl: '3%', mb: '-2%' }} fontFamily="twaysky">
+            #공공집
           </Typography>
         </Stack>
 
@@ -42,9 +43,9 @@ class Home extends React.Component {
             md={3}
             onClick={this.goToSlide}
           >
-            <Paper className="paper">
-              <div className="keyword"> 클릭 </div>
-            </Paper>
+
+            <div className="keyword"> item </div>
+
           </Grid>
           <Grid
             item
@@ -54,44 +55,45 @@ class Home extends React.Component {
             md={3}
             onClick={this.goToSlide}
           >
-            <Paper className="paper">
-              <div className="keyword"> item </div>
-            </Paper>
+
+            <div className="keyword"> item </div>
+
           </Grid>
           <Grid item className="itemBox" xs={12} sm={3} md={3}>
-            <Paper className="paper">
-              <div className="keyword"> item </div>
-            </Paper>
-          </Grid>
+
+            <div className="keyword"> item </div>
+
+          </Grid >
           <Grid item className="itemBox" xs={12} sm={3} md={3}>
-            <Paper className="paper">
-              <div className="keyword"> item </div>
-            </Paper>
-          </Grid>
-        </Grid>
+
+            <div className="keyword"> item </div>
+
+          </Grid >
+        </Grid >
+
         <Grid container spacing={4} sx={{ width: '70%', pt: '2%', pl: '7%' }}>
           <Grid item className="itemBox" xs={12} sm={3} md={3}>
-            <Paper className="paper">
-              <div className="keyword"> item </div>
-            </Paper>
+
+            <div className="keyword"> item </div>
+
           </Grid>
           <Grid item className="itemBox" xs={12} sm={3} md={3}>
-            <Paper className="paper">
-              <div className="keyword"> item </div>
-            </Paper>
-          </Grid>
+
+            <div className="keyword"> item </div>
+
+          </Grid >
           <Grid item className="itemBox" xs={12} sm={3} md={3}>
-            <Paper className="paper">
-              <div className="keyword"> item </div>
-            </Paper>
-          </Grid>
+
+            <div className="keyword"> item </div>
+
+          </Grid >
           <Grid item className="itemBox" xs={12} sm={3} md={3}>
-            <Paper className="paper">
-              <div className="keyword"> item </div>
-            </Paper>
-          </Grid>
-        </Grid>
-      </Container>
+
+            <div className="keyword"> item </div>
+
+          </Grid >
+        </Grid >
+      </Container >
     );
   }
 }

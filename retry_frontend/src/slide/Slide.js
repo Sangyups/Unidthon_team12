@@ -38,6 +38,7 @@ const Slide = () => {
 
   return (
     <Wrap>
+
       <Slider {...settings}>
         <Card setTrigger={setButtonPopup} />
         <Card setTrigger={setButtonPopup} />
