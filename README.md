@@ -14,6 +14,8 @@ python manage.py runserver
 ```
 
 ## Frontend
+### How To Install
+
 ```bash
 cd Hackathon_team12/frontend
 npm install
@@ -23,7 +25,7 @@ npm start
 
 ### Mainly Used Framework
 React
-
+Django
 
 ### Directory
 + frontend
