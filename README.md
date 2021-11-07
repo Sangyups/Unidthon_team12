@@ -77,14 +77,14 @@ Download in [here](https://www.dropbox.com/s/stt4y0zcp2c0iyb/ko.tar.gz?dl=0). - 
 ```
 algorithm ┬── model
           │   └── ko.bin
-		  ├── test
-		  │   ├── test.txt
-  		  │   ├── articles.txt
-		  │   ├── articles-2.txt
-		  │   └── description.txt 
-		  ├── keyword.py
-		  ├── similarity.py
-		  ├── stopwords.txt
-		  ├── requirements.txt 
-		  └── README.md
+	  ├── test
+	  │   ├── test.txt
+	  │   ├── articles.txt
+	  │   ├── articles-2.txt
+	  │   └── description.txt 
+	  ├── keyword.py
+	  ├── similarity.py
+	  ├── stopwords.txt
+	  ├── requirements.txt 
+	  └── README.md
 ```
