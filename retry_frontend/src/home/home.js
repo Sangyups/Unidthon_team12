@@ -1,4 +1,3 @@
-//
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Paper, Stack, Typography } from '@mui/material';
@@ -63,11 +62,13 @@ const Home = () => {
 
         {keywords.keywords.map((keyword, index) => (
           <Grid item className="itemBox" xs={12} sm={3} md={3} key={index}>
-            <Paper className="paper">
-              <Link to={`/promises?keyword=${keyword}`}>
-                <div className="keyword"> {keyword} </div>
-              </Link>
-            </Paper>
+            <Grid item>
+              <Paper className="paper">
+                <Link to={`/promises?keyword=${keyword}`}>
+                  <div className="keyword"> {keyword} </div>
+                </Link>
+              </Paper>
+            </Grid>
           </Grid>
         ))}
       </Container>
